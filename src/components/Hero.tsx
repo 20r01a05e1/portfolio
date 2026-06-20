@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, Github, Linkedin, Code2, Download } from "lucide-react";
-import profile from "@/assets/profile.jpg";
+import { ArrowRight, Mail, Github, Linkedin, Code2, Download, Sparkles } from "lucide-react";
+import profileAsset from "@/assets/ajay-profile.png.asset.json";
+
+const profile = profileAsset.url;
 
 const ROLES = ["Full-Stack Developer", "Backend Engineer", "Python Developer", "Problem Solver"];
 
@@ -127,30 +129,77 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="order-1 mx-auto lg:order-2"
         >
-          <div className="relative animate-float">
-            <div className="absolute -inset-4 rounded-full bg-gradient-brand opacity-40 blur-2xl animate-pulse-glow" />
-            <div className="relative h-64 w-64 overflow-hidden rounded-full border-2 border-white/10 sm:h-80 sm:w-80">
-              <div className="absolute inset-0 rounded-full bg-gradient-brand p-[2px]">
-                <div className="h-full w-full overflow-hidden rounded-full bg-background">
-                  <img
-                    src={profile}
-                    alt="Ajay Kumar Kallammal"
-                    width={640}
-                    height={640}
-                    className="h-full w-full object-cover"
-                  />
+          <div className="relative">
+            {/* outer rotating ring */}
+            <motion.div
+              aria-hidden
+              animate={{ rotate: 360 }}
+              transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+              className="absolute inset-0 -m-6 rounded-full border border-dashed border-primary/30"
+            />
+            <motion.div
+              aria-hidden
+              animate={{ rotate: -360 }}
+              transition={{ duration: 45, ease: "linear", repeat: Infinity }}
+              className="absolute inset-0 -m-12 rounded-full border border-accent/20"
+            />
+
+            {/* halo glow */}
+            <div className="pointer-events-none absolute -inset-8 rounded-full bg-gradient-brand opacity-40 blur-3xl animate-pulse-glow" />
+
+            <div className="relative animate-float">
+              {/* gradient ring frame */}
+              <div className="relative h-72 w-72 rounded-full bg-gradient-brand p-[3px] shadow-[0_25px_80px_-20px_hsl(var(--primary)/0.6)] sm:h-96 sm:w-96">
+                <div className="h-full w-full rounded-full bg-background p-1.5">
+                  <div className="relative h-full w-full overflow-hidden rounded-full">
+                    <img
+                      src={profile}
+                      alt="Ajay Kumar Kallammal - Associate Software Engineer"
+                      width={800}
+                      height={800}
+                      loading="eager"
+                      className="h-full w-full object-cover object-top scale-105"
+                    />
+                    {/* subtle vignette */}
+                    <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* floating chips */}
-            <div className="absolute -left-6 top-10 hidden rounded-xl glass-elevated px-3 py-2 text-xs font-mono shadow-card sm:block">
-              <span className="text-primary">{"<"}</span>Python<span className="text-primary">{"/>"}</span>
-            </div>
-            <div className="absolute -right-4 top-1/2 hidden rounded-xl glass-elevated px-3 py-2 text-xs font-mono shadow-card sm:block">
-              <span className="text-accent">React</span>
-            </div>
-            <div className="absolute bottom-6 -left-8 hidden rounded-xl glass-elevated px-3 py-2 text-xs font-mono shadow-card sm:block">
-              <span className="text-primary">Azure</span> ☁
+
+              {/* floating tech chips */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="absolute -left-4 top-8 rounded-xl glass-elevated px-3 py-2 text-xs font-mono shadow-card sm:-left-10"
+              >
+                <span className="text-primary">{"<"}</span>Python<span className="text-primary">{"/>"}</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7 }}
+                className="absolute -right-2 top-1/2 rounded-xl glass-elevated px-3 py-2 text-xs font-mono shadow-card sm:-right-8"
+              >
+                <span className="text-accent">⚛ React</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9 }}
+                className="absolute bottom-8 -left-6 rounded-xl glass-elevated px-3 py-2 text-xs font-mono shadow-card sm:-left-12"
+              >
+                <span className="text-primary">☁ Azure</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.1 }}
+                className="absolute -bottom-2 right-4 inline-flex items-center gap-1.5 rounded-full glass-elevated px-3 py-1.5 text-xs font-semibold shadow-card sm:right-2"
+              >
+                <Sparkles className="h-3 w-3 text-primary" />
+                <span className="bg-gradient-brand bg-clip-text text-transparent">2+ yrs exp</span>
+              </motion.div>
             </div>
           </div>
         </motion.div>
