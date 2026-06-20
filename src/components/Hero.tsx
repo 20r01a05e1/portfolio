@@ -5,7 +5,7 @@ import profileAsset from "@/assets/ajay-profile.png.asset.json";
 
 const profile = profileAsset.url;
 
-const ROLES = ["Full-Stack Developer", "Backend Engineer", "Python Developer", "Problem Solver"];
+const ROLES = ["Full-Stack Developer", "Backend Engineer", "", "Problem Solver"];
 
 function useTyping() {
   const [text, setText] = useState("");
@@ -95,7 +95,7 @@ export function Hero() {
               href="#"
               className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
             >
-              <Download className="h-4 w-4" /> Resume
+              <Download className="h-4 w-4" />
             </a>
           </div>
 

@@ -105,7 +105,7 @@ export function Projects() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs font-semibold transition-colors hover:bg-white/5"
                 >
-                  <Link2 className="h-3.5 w-3.5" /> Details
+                  <Link2 className="h-3.5 w-3.5" />
                 </a>
               </div>
             </div>
