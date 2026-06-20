@@ -34,10 +34,9 @@ export function About() {
           </p>
           <div className="rounded-2xl glass p-5">
             <p className="font-mono text-sm">
-              <span className="text-muted-foreground">{"// philosophy"}</span>
               <br />
               <span className="text-primary">const</span> mantra ={" "}
-              <span className="text-accent">"Build scalable solutions, one line of code at a time."</span>
+              <span className="text-accent">""</span>
               ;
             </p>
           </div>
