@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import {
-  SiPython, SiCplusplus, SiHtml5, SiCss3, SiJavascript, SiReact,
+  SiPython, SiCplusplus, SiHtml5, SiCss, SiJavascript, SiReact,
   SiFlask, SiDjango, SiNodedotjs, SiMysql, SiMongodb,
-  SiAmazon, SiDocker, SiGit,
+  SiAmazonwebservices, SiDocker, SiGit,
 } from "react-icons/si";
 import { VscAzure } from "react-icons/vsc";
+
+const SiCss3 = SiCss;
+const SiAmazon = SiAmazonwebservices;
 import { GitBranch, Workflow, Boxes, Brain } from "lucide-react";
 
 const groups = [
