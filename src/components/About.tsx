@@ -35,9 +35,6 @@ export function About() {
           <div className="rounded-2xl glass p-5">
             <p className="font-mono text-sm">
               <br />
-              <span className="text-primary">const</span> mantra ={" "}
-              <span className="text-accent">""</span>
-              ;
             </p>
           </div>
         </motion.div>
