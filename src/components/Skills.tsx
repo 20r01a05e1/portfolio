@@ -3,12 +3,13 @@ import { Section } from "./Section";
 import {
   SiPython, SiCplusplus, SiHtml5, SiCss, SiJavascript, SiReact,
   SiFlask, SiDjango, SiNodedotjs, SiMysql, SiMongodb,
-  SiAmazonwebservices, SiDocker, SiGit,
+  SiDocker, SiGit,
 } from "react-icons/si";
 import { VscAzure } from "react-icons/vsc";
+import { Cloud } from "lucide-react";
 
 const SiCss3 = SiCss;
-const SiAmazon = SiAmazonwebservices;
+const SiAmazon = Cloud;
 import { GitBranch, Workflow, Boxes, Brain } from "lucide-react";
 
 const groups = [
