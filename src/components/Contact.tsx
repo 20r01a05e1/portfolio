@@ -17,14 +17,32 @@ const socials = [
 ];
 
 export function Contact() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const body = `From: ${data.get("name")} <${data.get("email")}>\n\n${data.get("message")}`;
-    window.location.href = `mailto:kallammalajaykumar@gmail.com?subject=Portfolio inquiry&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    setStatus("sending");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      await emailjs.send(
+        "service_8h3wssc",
+        "template_b39fwjc",
+        {
+          from_name: data.get("name"),
+          from_email: data.get("email"),
+          message: data.get("message"),
+        },
+        { publicKey: "JBTSna7vNXvo5bp9p" }
+      );
+      setStatus("sent");
+      form.reset();
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setStatus("error");
+    }
   };
 
   return (
