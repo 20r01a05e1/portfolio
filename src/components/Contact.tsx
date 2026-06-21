@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Github, Linkedin, Send, Code2 } from "lucide-react";
+import { Mail, MapPin, Phone, Github, Linkedin, Send, Code2, CheckCircle, Loader2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import { Section } from "./Section";
 
 const contacts = [
