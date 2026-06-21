@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Github, Linkedin, Send, Code2 } from "lucide-react";
+import { Mail, MapPin, Phone, Github, Linkedin, Send, Code2, CheckCircle, Loader2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import { Section } from "./Section";
 
 const contacts = [
@@ -16,14 +17,32 @@ const socials = [
 ];
 
 export function Contact() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const body = `From: ${data.get("name")} <${data.get("email")}>\n\n${data.get("message")}`;
-    window.location.href = `mailto:kallammalajaykumar@gmail.com?subject=Portfolio inquiry&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    setStatus("sending");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      await emailjs.send(
+        "service_8h3wssc",
+        "template_b39fwjc",
+        {
+          from_name: data.get("name"),
+          from_email: data.get("email"),
+          message: data.get("message"),
+        },
+        { publicKey: "JBTSna7vNXvo5bp9p" }
+      );
+      setStatus("sent");
+      form.reset();
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setStatus("error");
+    }
   };
 
   return (
@@ -107,13 +126,33 @@ export function Contact() {
           </div>
           <button
             type="submit"
-            className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-brand px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 hover:glow-blue"
+            disabled={status === "sending" || status === "sent"}
+            className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-brand px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 hover:glow-blue disabled:opacity-70 disabled:cursor-not-allowed"
           >
-            {sent ? "Opening your mail app…" : "Send Message"}
-            <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            {status === "sending" ? (
+              <>
+                Sending…
+                <Loader2 className="h-4 w-4 animate-spin" />
+              </>
+            ) : status === "sent" ? (
+              <>
+                Message sent
+                <CheckCircle className="h-4 w-4" />
+              </>
+            ) : status === "error" ? (
+              <>
+                Failed — try again
+                <Send className="h-4 w-4" />
+              </>
+            ) : (
+              <>
+                Send Message
+                <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </>
+            )}
           </button>
           <p className="text-center text-xs text-muted-foreground">
-            I usually respond within 24 hours on business days.
+            {status === "sent" ? "Thanks for reaching out! I’ll get back to you soon." : "I usually respond within 24 hours on business days."}
           </p>
         </motion.form>
       </div>
