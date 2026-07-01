@@ -5,7 +5,7 @@ import profileAsset from "@/assets/ajay-profile.png.asset.json";
 
 const profile = profileAsset.url;
 
-const ROLES = ["Full-Stack Developer", "Backend Engineer", "", "Problem Solver"];
+const ROLES = ["Full-Stack Developer", "Backend Engineer"];
 
 function useTyping() {
   const [text, setText] = useState("");
@@ -176,29 +176,12 @@ export function Hero() {
                 <span className="text-primary">{"<"}</span>Python<span className="text-primary">{"/>"}</span>
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, x: 10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7 }}
-                className="absolute -right-2 top-1/2 rounded-xl glass-elevated px-3 py-2 text-xs font-mono shadow-card sm:-right-8"
-              >
-                <span className="text-accent">⚛ React</span>
-              </motion.div>
-              <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9 }}
                 className="absolute bottom-8 -left-6 rounded-xl glass-elevated px-3 py-2 text-xs font-mono shadow-card sm:-left-12"
               >
                 <span className="text-primary">☁ Azure</span>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.1 }}
-                className="absolute -bottom-2 right-4 inline-flex items-center gap-1.5 rounded-full glass-elevated px-3 py-1.5 text-xs font-semibold shadow-card sm:right-2"
-              >
-                <Sparkles className="h-3 w-3 text-primary" />
-                <span className="bg-gradient-brand bg-clip-text text-transparent">2+ yrs exp</span>
               </motion.div>
             </div>
           </div>
