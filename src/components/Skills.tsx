@@ -33,14 +33,12 @@ const groups = [
     title: "Backend",
     items: [
       { name: "Flask", icon: SiFlask, level: 90 },
-      { name: "Django", icon: SiDjango, level: 80 },
     ],
   },
   {
     title: "Databases",
     items: [
       { name: "MySQL", icon: SiMysql, level: 88 },
-      { name: "MongoDB", icon: SiMongodb, level: 75 },
     ],
   },
   {
@@ -48,9 +46,7 @@ const groups = [
     items: [
       { name: "Azure", icon: VscAzure, level: 82 },
       { name: "AWS", icon: SiAmazon, level: 78 },
-      { name: "Docker", icon: SiDocker, level: 75 },
       { name: "Git", icon: SiGit, level: 90 },
-      { name: "CI/CD", icon: Workflow, level: 72 },
     ],
   },
   {
