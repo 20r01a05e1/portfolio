@@ -17,7 +17,7 @@ const projects = [
     title: "E-Commerce Website",
     description:
       "A full-featured Flask-based e-commerce platform with authentication, shopping cart, payments, and a dockerized deployment.",
-    tags: ["Flask", "JavaScript", "CSS", "Docker"],
+    tags: ["HTML", "CSS", "Javascript", "Python"],
     features: [
       "Secure authentication",
       "Product management",
