@@ -149,7 +149,7 @@ export function Hero() {
 
             <div className="relative animate-float">
               {/* gradient ring frame */}
-              <div className="relative h-72 w-72 rounded-full bg-gradient-brand p-[3px] shadow-[0_25px_80px_-20px_hsl(var(--primary)/0.6)] sm:h-96 sm:w-96">
+              <div className="relative h-60 w-60 rounded-full bg-gradient-brand p-[3px] shadow-[0_25px_80px_-20px_hsl(var(--primary)/0.6)] sm:h-72 sm:w-72">
                 <div className="h-full w-full rounded-full bg-background p-1.5">
                   <div className="relative h-full w-full overflow-hidden rounded-full">
                     <img

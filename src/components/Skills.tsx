@@ -26,7 +26,6 @@ const groups = [
       { name: "HTML", icon: SiHtml5, level: 90 },
       { name: "CSS", icon: SiCss3, level: 85 },
       { name: "JavaScript", icon: SiJavascript, level: 82 },
-      { name: "React", icon: SiReact, level: 78 },
     ],
   },
   {
