@@ -54,7 +54,7 @@ const groups = [
     items: [
       { name: "Data Structures", icon: Boxes, level: 85 },
       { name: "Algorithms", icon: Brain, level: 82 },
-      { name: "OOP", icon: GitBranch, level: 88 },
+      { name: "OOPS", icon: GitBranch, level: 88 },
     ],
   },
 ];
