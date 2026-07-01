@@ -7,7 +7,7 @@ const projects = [
     title: "URL Shortener",
     description:
       "A Python Flask-based URL shortener that generates compact, shareable links with database persistence and instant redirection.",
-    tags: ["Python", "HTML"],
+    tags: ["Python", "HTML", "CSS"],
     features: ["Unique compact URLs", "Database persistence", "Quick redirection", "Friendly UI"],
     repo: "https://github.com/20r01a05e1",
     gradient: "from-blue-500/30 to-cyan-500/30",
