@@ -34,7 +34,6 @@ const groups = [
     items: [
       { name: "Flask", icon: SiFlask, level: 90 },
       { name: "Django", icon: SiDjango, level: 80 },
-      { name: "Node.js", icon: SiNodedotjs, level: 70 },
     ],
   },
   {
