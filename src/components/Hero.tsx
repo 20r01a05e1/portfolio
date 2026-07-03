@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, Github, Linkedin, Code2, Download, Sparkles } from "lucide-react";
-import profileAsset from "@/assets/ajay-profile.png.asset.json";
-
-const profile = profileAsset.url;
+import { ArrowRight, Mail, Github, Linkedin, Code2, Download } from "lucide-react";
+import profile from "@/assets/profile.png";
 
 const ROLES = ["Full-Stack Developer", "Backend Engineer"];
 
@@ -74,7 +72,10 @@ export function Hero() {
           </div>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Associate Software Engineer at <span className="text-foreground font-medium">Accenture</span> with 2+ years of experience building scalable web applications. Passionate about solving complex problems with Python and modern technologies.
+            Associate Software Engineer at{" "}
+            <span className="text-foreground font-medium">Accenture</span> with 2+ years of
+            experience building scalable web applications. Passionate about solving complex problems
+            with Python and modern technologies.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -105,7 +106,11 @@ export function Hero() {
               {[
                 { href: "mailto:kallammalajaykumar@gmail.com", icon: Mail, label: "Email" },
                 { href: "https://github.com/20r01a05e1", icon: Github, label: "GitHub" },
-                { href: "https://www.linkedin.com/in/kallammal-ajay-kumar-1177b923b/", icon: Linkedin, label: "LinkedIn" },
+                {
+                  href: "https://www.linkedin.com/in/kallammal-ajay-kumar-1177b923b/",
+                  icon: Linkedin,
+                  label: "LinkedIn",
+                },
                 { href: "https://leetcode.com/u/20r01a05e1/", icon: Code2, label: "LeetCode" },
               ].map(({ href, icon: Icon, label }) => (
                 <a
